@@ -1,0 +1,81 @@
+.timer {
+  padding: 10px 1%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 30%;
+  justify-content: space-around;
+  background-color: gray;
+  border-radius: 10px;
+}
+.timer__container {
+  min-width: 300px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: blue;
+  margin: 5px 0px;
+  border-radius: 5px;
+}
+.timer__container--selection {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0px;
+}
+.timer__container--selection button {
+  width: 80px;
+}
+.timer__container--options {
+  width: 100%;
+  padding-right: 2%;
+  padding: 5px 2%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: lightblue;
+  border-radius: 0px 0px 5px 5px;
+}
+.timer__container--options button {
+  width: 8rem;
+  height: 1.5rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.bg {
+  width: 100vw;
+  height: 100vh;
+  background-color: blue;
+  background-color: red;
+}
+
+.drag-drop-zone {
+  padding: 2rem;
+  text-align: center;
+  background: #07f;
+  border-radius: 0.5rem;
+  box-shadow: 5px 5px 10px #c0c0c0;
+}
+
+.drag-drop-zone p {
+  color: #fff;
+}
+
+.drag-drop-zone.inside-drag-area {
+  opacity: 0.7;
+}
+
+.dropped-files li {
+  color: #07f;
+  padding: 3px;
+  text-align: left;
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=styles.css.map */
