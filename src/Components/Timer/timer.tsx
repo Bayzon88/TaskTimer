@@ -14,21 +14,23 @@ type TimerProps = {
 
 export default function Timer(props: TimerProps) {
   const [timer, setTimer] = useState(0);
-  const [pomodoroStage, setPomodoroStage] = useState("pomodoro");
+  const [timerType, setTimerType] = useState(props.task.timerType);
   const [isCountingDown, setIsCountingDown] = useState(false);
 
   const handleCountingState = () => {
     if (isCountingDown) setIsCountingDown(false);
     if (!isCountingDown) setIsCountingDown(true);
   };
-  const selectStage: Function = (e: any): void => {
-    setPomodoroStage(e.target.textContent.toLowerCase());
+  const selectTimerType: Function = (e: any): void => {
     setIsCountingDown(false);
+    setTimerType(e.target.textContent.toLowerCase());
   };
 
   useEffect(() => {
+    console.log("Activated useEffect :" + timerType);
+
     // Creates a Timer with specific time based on the stage name
-    switch (props.task.timerType) {
+    switch (timerType) {
       case "pomodoro": {
         setTimer(1 * 5);
         break;
@@ -42,7 +44,7 @@ export default function Timer(props: TimerProps) {
         break;
       }
     }
-  }, [props.task.timerType]);
+  }, [timerType]);
 
   useEffect(() => {
     // Check if the timer is counting doesNotThrow, when it reaches 0 handleCountingState will stop the timer
@@ -67,14 +69,14 @@ export default function Timer(props: TimerProps) {
 
   return (
     <>
-      <div className='timer__container'>
+      <div aria-hidden draggable={false} className='timer__container'>
         <span className='timer__container--task'>
           <h2> {props.task.taskName}</h2>
-          <p>{isCountingDown}</p>
+
           <p>
             {minutes > 9 ? minutes : `0` + minutes}:{seconds > 9 ? seconds : `0` + seconds}
           </p>
-          <SideButtons />
+          <SideButtons selectTimerType={selectTimerType} />
         </span>
 
         <span className='timer__container--options'>
