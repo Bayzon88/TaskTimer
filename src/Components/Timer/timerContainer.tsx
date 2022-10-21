@@ -81,7 +81,6 @@ const TimerContainer: FC<TimerContainerProps> = ({ tasks, setTasks }) => {
                 onDragOver={(e) => e.preventDefault()}
                 onDragEnd={(e) => handleDragEnd(e, index)}
               >
-                
                 <Timer task={task} />
               </div>
             </li>

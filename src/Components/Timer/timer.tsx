@@ -70,13 +70,13 @@ export default function Timer(props: TimerProps) {
   return (
     <>
       <div aria-hidden draggable={false} className='timer__container'>
+        <SideButtons selectTimerType={selectTimerType} />
         <span className='timer__container--task'>
           <h2> {props.task.taskName}</h2>
 
           <p>
             {minutes > 9 ? minutes : `0` + minutes}:{seconds > 9 ? seconds : `0` + seconds}
           </p>
-          <SideButtons selectTimerType={selectTimerType} />
         </span>
 
         <span className='timer__container--options'>
