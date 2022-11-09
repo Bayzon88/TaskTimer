@@ -1,40 +1,28 @@
 import { FC, useState } from "react";
 import Timer from "./timer";
+import { TasksData, ListData, TimerContainerProps } from "../../Interfaces/interfaces";
 
-interface TimerContainerProps {
-  tasks: {
-    taskID: number;
-    taskName: string;
-    numberOfPomodoros: number;
-    timerType: string;
-  }[];
-  setTasks: Function;
-}
-
-const TimerContainer: FC<TimerContainerProps> = ({ tasks, setTasks }) => {
+const TimerContainer: FC<TimerContainerProps> = ({ tasks, listName, updateOrderOfTasks }) => {
   //************* Start Event Handlers for drag and drop items *****************//
 
   const [dragItem, setDragItem] = useState(0);
   const handleDragStart = (e: React.DragEvent<HTMLDivElement>, index: number): void => {
     setDragItem(index);
-
-    console.log("comenzo el drag");
   };
 
   const handleDragEnter = (e: any, index: number): void => {
-    console.log(e.target);
     e.stopPropagation();
     e.preventDefault();
     if (e.target.draggable == true) {
       e.preventDefault();
-
       const newTasks = [...tasks];
       const item = newTasks[dragItem];
       newTasks.splice(dragItem, 1);
       newTasks.splice(index, 0, item);
       setDragItem(index);
+      const listData = { listName: listName, tasks: newTasks };
 
-      setTasks(newTasks);
+      updateOrderOfTasks(listData);
     }
   };
 
@@ -43,18 +31,17 @@ const TimerContainer: FC<TimerContainerProps> = ({ tasks, setTasks }) => {
   };
 
   const handleDragEnd = (e: any, index: number): void => {
-    e.preventDefault();
-    if (e.target.draggable == true) {
-      e.preventDefault();
-      e.stopPropagation();
-      const newTasks = [...tasks];
-      const item = newTasks[dragItem];
-      newTasks.splice(dragItem, 1);
-      newTasks.splice(index, 0, item);
-      setDragItem(index);
-
-      setTasks(newTasks);
-    }
+    // e.preventDefault();
+    // if (e.target.draggable == true) {
+    //   e.preventDefault();
+    //   e.stopPropagation();
+    //   const newTasks = [...listData.tasks];
+    //   const item = newTasks[dragItem];
+    //   newTasks.splice(dragItem, 1);
+    //   newTasks.splice(index, 0, item);
+    //   setDragItem(index);
+    //   setTasks(newTasks);
+    // }
   };
 
   const handleDrop = (e: any, index: number): void => {

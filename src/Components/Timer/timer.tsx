@@ -32,7 +32,7 @@ export default function Timer(props: TimerProps) {
     // Creates a Timer with specific time based on the stage name
     switch (timerType) {
       case "pomodoro": {
-        setTimer(1 * 5);
+        setTimer(25 * 60);
         break;
       }
       case "break": {

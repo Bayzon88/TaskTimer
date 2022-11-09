@@ -1,0 +1,28 @@
+@import "./timer";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"); //fontawesome icons cdn
+.navbar {
+  color: white;
+  background-color: $background;
+  width: 100%;
+  display: flex;
+  padding: 1%;
+  justify-content: space-between;
+
+  border-bottom: 1px solid rgba(114, 30, 30, 0.274);
+  &__logo {
+    font-size: 2rem;
+  }
+  &__options {
+    width: 300px;
+    display: flex;
+    justify-content: space-around;
+    &--timer,
+    &--custom {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 90px;
+      padding-inline: 3px !important;
+    }
+  }
+}

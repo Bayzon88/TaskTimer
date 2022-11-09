@@ -1,12 +1,17 @@
 import TimerList from "./Components/Timer/timerList";
 import "./assets/css/styles.css";
-import DragableItem from "./Components/DragnDrop/dragndrop";
+import Navbar from "./Components/Navbar";
 
 function App() {
   return (
-    <section className='bg'>
-      <TimerList />
-    </section>
+    <>
+      <section className='background'>
+        <Navbar />
+        <div className='timers d-flex'>
+          <TimerList />
+        </div>
+      </section>
+    </>
   );
 }
 

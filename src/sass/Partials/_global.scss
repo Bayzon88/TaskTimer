@@ -6,7 +6,7 @@
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
 }
-.bg {
+.background {
   width: 100vw;
   height: 100vh;
   background-color: $background;
@@ -31,4 +31,24 @@
   padding: 3px;
   text-align: left;
   font-weight: bold;
+}
+a {
+  text-decoration: none !important;
+}
+a:visited {
+  color: inherit !important;
+}
+
+ul {
+  padding: 0px !important;
+  margin: 0px !important;
+}
+h6,
+p {
+  margin: 0px !important;
+  padding: 0px !important;
+}
+
+h2 {
+  font-size: 1.5rem !important;
 }
